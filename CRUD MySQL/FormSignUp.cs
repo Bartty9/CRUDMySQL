@@ -45,18 +45,14 @@ namespace CRUD_MySQL
             }
             if (btnSignUp.Text == "Sign Up")
             {
-                //Participant participant = new Participant(txtName.Text.Trim(), txtEmail.Text.Trim());
-                List<Participant> participants = new List<Participant>()
-                {
-                    new Participant(txtName.Text.Trim(), txtEmail.Text.Trim()),
-                };
+                Participant participant = new Participant(txtName.Text.Trim(), txtEmail.Text.Trim());
                 if (DbMeetings.CheckIfTableExists(signUpId))
                 {
-                    MessageBox.Show("Table exists.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //MessageBox.Show("Table exists.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if (DbMeetings.CheckNumberOfParticipants(signUpId))
                     {
-                        DbMeetings.SignUpParticipant(participants[0], signUpId);
-                        MessageBox.Show("Participant signed up.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        DbMeetings.SignUpParticipant(participant, signUpId);
+                        //MessageBox.Show("Participant signed up.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
@@ -65,9 +61,9 @@ namespace CRUD_MySQL
                 }
                 else
                 {
-                    MessageBox.Show("Table doesn't exist.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //MessageBox.Show("Table doesn't exist.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     DbMeetings.CreateParticipantsTable(signUpId);
-                    DbMeetings.SignUpParticipant(participants[0], signUpId);
+                    DbMeetings.SignUpParticipant(participant, signUpId);
                 }
 
                 Clear();

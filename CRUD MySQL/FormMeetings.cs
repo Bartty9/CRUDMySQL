@@ -21,7 +21,7 @@ namespace CRUD_MySQL
 
         public void Display()
         {
-            DbMeetings.DisplaySearch("SELECT ID, Name, Place, Date, Time, Participants FROM meetings_table", dataGridView);
+            DbMeetings.DisplaySearch("SELECT ID, Name, Place, Date, Time FROM meetings_table", dataGridView);
         }
 
         private void btnNew_Click(object sender, EventArgs e)
@@ -37,36 +37,52 @@ namespace CRUD_MySQL
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            DbMeetings.DisplaySearch("SELECT ID, Name, Place, Date, Time, Participants FROM meetings_table WHERE Name LIKE'%" + txtSearch.Text + "%'", dataGridView);
+            DbMeetings.DisplaySearch("SELECT ID, Name, Place, Date, Time FROM meetings_table WHERE Name LIKE'%" + txtSearch.Text + "%'", dataGridView);
         }
 
         private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 0) //SIGN UP
+            if (e.ColumnIndex == 0) //SHOW PARTICIPANTS
+            {
+                FormShowParticipants formShowParticipants = new FormShowParticipants(this);
+                formShowParticipants.showId = dataGridView.Rows[e.RowIndex].Cells[4].Value.ToString();
+                if (DbMeetings.CheckIfTableExists(formShowParticipants.showId))
+                {
+                    formShowParticipants.ShowParticipants();
+                    formShowParticipants.ShowDialog();
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("There are no participants signed up for this event.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }  
+            }            
+            if (e.ColumnIndex == 1) //SIGN UP
             {
                 FormSignUp formSignUp = new FormSignUp(this);
-                formSignUp.signUpId = dataGridView.Rows[e.RowIndex].Cells[3].Value.ToString();
+                formSignUp.signUpId = dataGridView.Rows[e.RowIndex].Cells[4].Value.ToString();
                 formSignUp.SignUpInfo();
                 formSignUp.ShowDialog();
                 return;
             }
-            if (e.ColumnIndex == 1) //EDIT
-            {
+            if (e.ColumnIndex == 2) //EDIT
+            {                
                 form.Clear();
-                form.id = dataGridView.Rows[e.RowIndex].Cells[3].Value.ToString();
-                form.name = dataGridView.Rows[e.RowIndex].Cells[4].Value.ToString();
-                form.place = dataGridView.Rows[e.RowIndex].Cells[5].Value.ToString();
-                form.date = dataGridView.Rows[e.RowIndex].Cells[6].Value.ToString();
-                form.time = dataGridView.Rows[e.RowIndex].Cells[7].Value.ToString();
+                form.id = dataGridView.Rows[e.RowIndex].Cells[4].Value.ToString();
+                form.name = dataGridView.Rows[e.RowIndex].Cells[5].Value.ToString();
+                form.place = dataGridView.Rows[e.RowIndex].Cells[6].Value.ToString();
+                form.date = dataGridView.Rows[e.RowIndex].Cells[7].Value.ToString();
+                form.time = dataGridView.Rows[e.RowIndex].Cells[8].Value.ToString();
                 form.UpdateInfo();
                 form.ShowDialog();
                 return;
             }
-            if (e.ColumnIndex == 2) //DELETE
+            if (e.ColumnIndex == 3) //DELETE
             {
                 if (MessageBox.Show("Do you want to delete meeting?", "Information", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    DbMeetings.DeleteMeeting(dataGridView.Rows[e.RowIndex].Cells[3].Value.ToString());
+                    DbMeetings.DeleteMeeting(dataGridView.Rows[e.RowIndex].Cells[4].Value.ToString());
                     Display();
                 }
                 return;

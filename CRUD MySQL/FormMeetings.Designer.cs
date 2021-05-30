@@ -31,6 +31,7 @@ namespace CRUD_MySQL
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -40,7 +41,7 @@ namespace CRUD_MySQL
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -60,7 +61,7 @@ namespace CRUD_MySQL
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(937, 120);
+            this.panel1.Size = new System.Drawing.Size(1109, 120);
             this.panel1.TabIndex = 0;
             // 
             // label1
@@ -87,7 +88,7 @@ namespace CRUD_MySQL
             this.panel2.Controls.Add(this.btnNew);
             this.panel2.Location = new System.Drawing.Point(12, 152);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(913, 398);
+            this.panel2.Size = new System.Drawing.Size(1085, 434);
             this.panel2.TabIndex = 0;
             // 
             // dataGridView
@@ -122,7 +123,7 @@ namespace CRUD_MySQL
             this.dataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView.RowTemplate.Height = 25;
             this.dataGridView.ShowEditingIcon = false;
-            this.dataGridView.Size = new System.Drawing.Size(835, 282);
+            this.dataGridView.Size = new System.Drawing.Size(1007, 318);
             this.dataGridView.TabIndex = 0;
             this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
             // 
@@ -163,20 +164,30 @@ namespace CRUD_MySQL
             // 
             // Column6
             // 
-            this.Column6.DataPropertyName = "Participants";
-            this.Column6.HeaderText = "Participants";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column7
-            // 
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.SeaGreen;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Snow;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Snow;
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Column6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Column6.HeaderText = "";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column6.Text = "Show Participants";
+            this.Column6.UseColumnTextForButtonValue = true;
+            // 
+            // Column7
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Snow;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Snow;
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Column7.HeaderText = "";
             this.Column7.Name = "Column7";
@@ -187,13 +198,13 @@ namespace CRUD_MySQL
             // 
             // Column8
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Snow;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightSteelBlue;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Snow;
-            this.Column8.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Snow;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LightSteelBlue;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Snow;
+            this.Column8.DefaultCellStyle = dataGridViewCellStyle3;
             this.Column8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Column8.HeaderText = "";
             this.Column8.Name = "Column8";
@@ -203,13 +214,13 @@ namespace CRUD_MySQL
             // 
             // Column9
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Crimson;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Snow;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.IndianRed;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Snow;
-            this.Column9.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Crimson;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Snow;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.IndianRed;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Snow;
+            this.Column9.DefaultCellStyle = dataGridViewCellStyle4;
             this.Column9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Column9.HeaderText = "";
             this.Column9.Name = "Column9";
@@ -223,7 +234,7 @@ namespace CRUD_MySQL
             this.pictureBox1.BackColor = System.Drawing.Color.Honeydew;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Image = global::CRUD_MySQL.Properties.Resources.loupe_magnifier_magnifying_search_512;
-            this.pictureBox1.Location = new System.Drawing.Point(844, 36);
+            this.pictureBox1.Location = new System.Drawing.Point(1016, 36);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(29, 25);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -235,7 +246,7 @@ namespace CRUD_MySQL
             this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSearch.BackColor = System.Drawing.Color.White;
             this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtSearch.Location = new System.Drawing.Point(681, 36);
+            this.txtSearch.Location = new System.Drawing.Point(853, 36);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(164, 25);
             this.txtSearch.TabIndex = 2;
@@ -261,7 +272,7 @@ namespace CRUD_MySQL
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(937, 562);
+            this.ClientSize = new System.Drawing.Size(1109, 598);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "FormMeetings";
@@ -292,7 +303,7 @@ namespace CRUD_MySQL
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewButtonColumn Column6;
         private System.Windows.Forms.DataGridViewButtonColumn Column7;
         private System.Windows.Forms.DataGridViewButtonColumn Column8;
         private System.Windows.Forms.DataGridViewButtonColumn Column9;

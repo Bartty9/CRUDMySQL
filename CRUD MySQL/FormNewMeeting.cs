@@ -13,7 +13,7 @@ namespace CRUD_MySQL
     public partial class FormNewMeeting : Form
     {
         private readonly FormMeetings _parent;
-        public string id, name, place, date, time, participants;
+        public string id, name, place, date, time;
         public FormNewMeeting(FormMeetings parent)
         {
             InitializeComponent();

@@ -28,7 +28,7 @@ namespace CRUD_MySQL
 
         public static void NewMeeting(Meeting meeting)
         {
-            string sql = "INSERT INTO meetings_table VALUES (NULL, @MeetingName, @MeetingPlace, @MeetingDate, @MeetingTime, NULL, NULL)";
+            string sql = "INSERT INTO meetings_table VALUES (NULL, @MeetingName, @MeetingPlace, @MeetingDate, @MeetingTime, NULL)";
             MySqlConnection connection = GetConnection();
             MySqlCommand cmd = new MySqlCommand(sql, connection);
             cmd.CommandType = CommandType.Text;
@@ -99,7 +99,7 @@ namespace CRUD_MySQL
             try
             {
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Table created.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show("Table created.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (MySqlException exception)
             {
@@ -118,7 +118,6 @@ namespace CRUD_MySQL
             MySqlDataReader reader = cmd.ExecuteReader();
             try
             {
-                //cmd.ExecuteNonQuery();
                 while (reader.Read())
                 {
                     int count = reader.GetInt32(0);
@@ -152,18 +151,10 @@ namespace CRUD_MySQL
             MySqlDataReader reader = cmd.ExecuteReader();
             try
             {
-                //cmd.ExecuteNonQuery();
                 while (reader.Read())
                 {
                     int count = reader.GetInt32(0);
-                    if (count < 25)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
+                    return count < 25;                   
                 }
                 MessageBox.Show("Something went wrong.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
